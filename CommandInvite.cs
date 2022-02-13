@@ -32,7 +32,7 @@ namespace BadJujuRPGroups
             GroupRP group;
             var uPlayer = (UnturnedPlayer)caller;
             var target = UnturnedPlayer.FromName(command[0]);
-            inviter = (UnturnedPlayer)caller;
+           
    
             if(command.Length !=3 || command.Length == 0)
             {
