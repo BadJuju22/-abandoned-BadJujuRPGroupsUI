@@ -30,9 +30,8 @@ namespace BadJujuRPGroups
         {
             UnturnedPlayer inviter = (UnturnedPlayer)caller;
             GroupRP group;
-            var uPlayer = (UnturnedPlayer)caller;
-            var target = UnturnedPlayer.FromName(command[0]);
-           
+            UnturnedPlayer target = UnturnedPlayer.FromName(command[0]);
+         
    
             if(command.Length !=3 || command.Length == 0)
             {
@@ -56,7 +55,7 @@ namespace BadJujuRPGroups
                 UnturnedChat.Say(caller, "Данного ранга не существует", Color.yellow);
                 return;
             }
-            if (!(caller is ConsolePlayer) || !caller.HasPermission(group.LeadPerm) || !caller.IsAdmin )
+            if (!caller.HasPermission(group.LeadPerm) && !(caller is ConsolePlayer) &&!(caller.IsAdmin))
             {
                 UnturnedChat.Say(caller, Plugin.Instance.Translate("dont_perm"));
                 return;

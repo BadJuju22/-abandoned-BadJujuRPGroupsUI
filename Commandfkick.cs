@@ -49,9 +49,9 @@ namespace BadJujuRPGroups
                 UnturnedChat.Say(caller, Plugin.Instance.Translate("group_not_found"), Color.yellow);
                 return;
             }
-            if (!(caller is ConsolePlayer) || !caller.HasPermission(group.LeadPerm) || !caller.IsAdmin)
+            if (!caller.HasPermission(group.LeadPerm) && !(caller is ConsolePlayer) && !(caller.IsAdmin))
             {
-                UnturnedChat.Say(caller, Plugin.Instance.Translate("dont_perm"), Color.red);
+                UnturnedChat.Say(caller, Plugin.Instance.Translate("dont_perm"));
                 return;
             }
             Rank Rank = group.Ranks.Find(x => x.Members.Contains((ulong)target.CSteamID));
